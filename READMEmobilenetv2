@@ -1,0 +1,4 @@
+MobileNetV2 is a lightweight image classification / deep learning architecture based on CNN for mobile and embedded vision applications, it is made by google.
+We have used MobileNetv2 for a sub category classification for waste management purposes into the follwing categories Aerosol_cans,food_waste,general, glass_bottles, glass_jars, magazines, metal_cans,newspaper, paper_cups, plastic_cup_lids, plastic_trash_bags, plastic_water_bottles.
+The model has been trained on dataset taken from Roboflow (https://www.kaggle.com/datasets/alistairking/recyclable-and-household-waste-classification).
+Further this model has been integrated with YOLOv8 with the help  of Streamlit interface for complete multilevel classification.
