@@ -171,11 +171,5 @@ Create a virtual environment (optional but recommended) and install dependencies
 
 ### 🔧 Python Version
 - Python 3.8 or higher
-
-### 📦 Dependencies
-
-Install using pip:
-
-```bash
-pip install -r requirements.txt
-Dataset Link- (https://universe.roboflow.com/project-1ycjd/garbage-classification-jxps3/dataset)
+  
+ Dataset Link- (https://universe.roboflow.com/project-1ycjd/garbage-classification-jxps3/dataset)
