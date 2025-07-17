@@ -158,9 +158,4 @@ pip install -r requirements.txt
 
 ## 🔗 Dataset
 
-A custom dataset of over **30,000 waste images** organized in 12 classes was used for training. If you wish to try a public alternative, consider:
-[Roboflow Garbage Classification Dataset](https://universe.roboflow.com/project-1ycjd/garbage-classification-jxps3/dataset)
-
----
-
-Let me know if you’d like this added to a `.md` file directly or if you want to add images, plots, or class-wise results too!
+A custom dataset of over **30,000 waste images** organized in 12 classes was used for training. 
