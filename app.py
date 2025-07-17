@@ -15,7 +15,7 @@ import pandas as pd
 
 @st.cache_resource
 def load_models():
-    yolo_model = YOLO("C:/Users/mudit/Final_project/best.pt")
+    yolo_model = YOLO("Final_project/best.pt")
     mobilenet_model = mobilenet_v2(pretrained=False)
     classes = [
         'aerosol_cans', 'food_waste', 'general', 'glass_bottlles', 'glass_jars',
@@ -23,7 +23,7 @@ def load_models():
         'plastic_cup_lids', 'magzines', 'newspaper'
     ]
     mobilenet_model.classifier[1] = torch.nn.Linear(mobilenet_model.last_channel, len(classes))
-    mobilenet_model.load_state_dict(torch.load("C:/Users/mudit/Final_project/mobilenetv2_fine_classifier.pth", map_location='cpu'))
+    mobilenet_model.load_state_dict(torch.load("Final_project/mobilenetv2_fine_classifier.pth", map_location='cpu'))
     mobilenet_model.eval()
     return yolo_model, mobilenet_model, classes
 
@@ -46,9 +46,9 @@ coarse_to_fine = {
 }
 
 # Streamlit
-st.sidebar.title("🛠️ Waste Detection App")
+st.sidebar.title(" Waste Detection App")
 st.sidebar.markdown("Upload a waste image to detect and subclassify items.")
-uploaded_file = st.sidebar.file_uploader("📂 Upload an image", type=["jpg", "jpeg", "png"])
+uploaded_file = st.sidebar.file_uploader("Upload an image", type=["jpg", "jpeg", "png"])
 
 def classify_with_mobilenet_filtered(crop_img_path, yolo_label):
     image = Image.open(crop_img_path).convert('RGB')
@@ -79,8 +79,8 @@ if uploaded_file is not None:
     img_np = np.array(image)
     img_bgr = cv2.cvtColor(img_np, cv2.COLOR_RGB2BGR)
 
-    st.title("♻️ Waste Detection and Subclassification")
-    st.image(image, caption="📸 Uploaded Image", use_column_width=True)
+    st.title(" Waste Detection and Subclassification")
+    st.image(image, caption=" Uploaded Image", use_column_width=True)
 
     boxes = results[0].boxes
     annotated_img = img_bgr.copy()
@@ -108,15 +108,15 @@ if uploaded_file is not None:
             "Subcategory": subclass
         })
 
-    st.image(annotated_img, caption="📌 Annotated Detection Image", channels="BGR", use_column_width=True)
+    st.image(annotated_img, caption="Annotated Detection Image", channels="BGR", use_column_width=True)
 
     #Results table
-    st.markdown("### 📋 Classification Table")
+    st.markdown(" Classification Table")
     df = pd.DataFrame(results_data)
     st.dataframe(df, use_container_width=True)
 
     #Show cropped objects
-    st.markdown("### 🖼️ Cropped Detected Objects")
+    st.markdown("Cropped Detected Objects")
     cols = st.columns(min(4, len(crops)))
     for idx, (crop, subclass) in enumerate(crops):
         with cols[idx % len(cols)]:
